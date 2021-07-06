@@ -4,24 +4,34 @@ public class GenericsDemo {
 	public static void main(String[] args) {
 		Paint paint=new RedPaint();
 		Paint paint1=new BluePaint();
+		Powder powder=new RosePowder();
 		BadPaintBrush2 brush=new BadPaintBrush2();
 		brush.paint=paint;
 		brush.doPaint();
 		
 		BadPaintBrush bp=new BadPaintBrush();
 		bp.paint=paint;
-		bp.doPaint(2);
+		bp.doPaint(1);
 		
 		GoodPaintBrush<Paint> gpb=new GoodPaintBrush<>();
 		gpb.setObj(paint1);
 		System.out.println(gpb.getObj());
 		
-		BadPaintBrush3 bpb3=new BadPaintBrush3();
-		bpb3.obj=paint1;
-		bpb3.execute();
+		Paint mypaint=gpb.getObj();
+		mypaint.color();
 		
-		Powder p=new RosePowder();
-		p.doMakeUp();
+		GoodPaintBrush<Powder> gpb2=new GoodPaintBrush<>();
+		gpb2.setObj(new RosePowder());
+		System.out.println(gpb2.getObj());
+		powder.doMakeUp();
+		
+		
+//		BadPaintBrush3 bpb3=new BadPaintBrush3();
+//		bpb3.obj=paint1;
+//		bpb3.execute();
+//		
+//		Powder p=new RosePowder();
+//		p.doMakeUp();
 		
 	}
 
